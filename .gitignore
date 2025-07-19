@@ -1,0 +1,56 @@
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Maven
+target/
+dependency-reduced-pom.xml
+release.properties
+buildNumber.properties
+.mvn/timing.properties
+
+# IntelliJ / VS Code / Eclipse
+.idea/
+*.iml
+*.ipr
+*.iws
+*.log
+.vscode/
+*.swp
+*.swo
+*.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# H2 Database
+*.h2.db
+*.trace.db
+
+# Environment & Config
+.env
+*.keystore
+
+# GitHub Actions artifacts (if any)
+*.gz
+*.zip
+*.tgz
+
+# Node (if added in the future for frontend testing)
+node_modules/
+dist/
+
+# Tests
+/test-output/
+coverage/
+
+# Optional: ignore .classpath/.project if Eclipse is used
+.classpath
+.project
+.settings/
