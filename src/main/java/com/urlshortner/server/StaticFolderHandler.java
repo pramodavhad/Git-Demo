@@ -7,23 +7,25 @@ import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class StaticFileHandler implements HttpHandler {
-	private final String filePath;
+public class StaticFolderHandler implements HttpHandler {
+    private final String baseFolder;
 
-    public StaticFileHandler(String filePath) {
-        this.filePath = filePath;
+    public StaticFolderHandler(String baseFolder) {
+        this.baseFolder = baseFolder;
     }
 
     @Override
     public void handle(HttpExchange exchange) throws IOException {
-        String staticPath = "src/main/resources/static/" + filePath;
-        File file = new File(staticPath);
+        String uriPath = exchange.getRequestURI().getPath();
+        String filePath = "src/main/resources/static" + uriPath;
+
+        File file = new File(filePath);
         if (!file.exists()) {
             exchange.sendResponseHeaders(404, -1);
             return;
         }
 
-        String mimeType = Files.probeContentType(Paths.get(staticPath));
+        String mimeType = Files.probeContentType(Paths.get(filePath));
         byte[] bytes = Files.readAllBytes(file.toPath());
 
         exchange.getResponseHeaders().set("Content-Type", mimeType != null ? mimeType : "application/octet-stream");
@@ -33,4 +35,3 @@ public class StaticFileHandler implements HttpHandler {
         os.close();
     }
 }
-

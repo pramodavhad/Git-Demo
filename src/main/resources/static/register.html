@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html>
-<head><title>Register</title></head>
-<body>
-  <h2>Register</h2>
-  <form method="POST" action="http://localhost:8080/register">
-    <input name="username" placeholder="Username" required><br>
-    <input type="password" name="password" placeholder="Password" required><br>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Register | TinyURL Clone</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="container">
+  <h1>Register</h1>
+
+  <form id="registerForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" required />
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" required />
+
     <button type="submit">Register</button>
   </form>
+
+  <div id="message" class="message" style="display:none;"></div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a> |
+    <a href="login.html">Login</a>
+  </div>
+
+  <script src="js/register.js"></script>
 </body>
 </html>

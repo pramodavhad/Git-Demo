@@ -2,35 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>URL Shortener</title>
+  <title>URL Shorten</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
-<body>
-  <h2>Shorten Your URL</h2>
+<body class="container">
+  <h1>Shorten Your Long URLs</h1>
 
   <form id="shortenForm">
-    <input name="url" id="url" placeholder="Enter long URL" required />
-    <div id="customSlugContainer" style="display: none;">
-      <input name="customSlug" id="customSlug" placeholder="Custom slug (only for logged-in users)" />
-    </div>
-    <button type="submit">Shorten</button>
+    <label for="url">Enter a long URL:</label>
+    <input type="url" id="url" placeholder="https://example.com" required />
+
+    <input type="text" id="customSlug" placeholder="Custom slug (for logged-in users)" style="display:none" />
+
+    <button type="submit">Shorten URL</button>
   </form>
 
-  <p id="message"></p>
-  <div id="userUrlsContainer" style="display: none;">
-    <h3>Your Shortened URLs</h3>
-    <table id="userUrlsTable" border="1">
-      <thead>
-        <tr><th>Slug</th><th>Original URL</th></tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-  </div>
+  <div id="message" class="message" style="display:none;"></div>
 
-  <hr />
-  <a href="register.html">Register</a> | 
-  <a href="login.html">Login</a> | 
-  <button onclick="logout()">Logout</button>
+  <div class="nav-links">
+    <a href="register.html">Register</a> |
+    <a href="login.html">Login</a> |
+    <a href="myurls.html" id="myurlsLink" style="display:none">My URLs</a> |
+    <button id="logoutBtn" style="display:none">Logout</button>
+  </div>
 
   <script src="js/main.js"></script>
 </body>

@@ -4,8 +4,8 @@ import com.urlshortner.server.LoginHandler;
 import com.urlshortner.server.MyUrlsHandler;
 import com.urlshortner.server.RedirectHandler;
 import com.urlshortner.server.RegisterHandler;
-import com.urlshortner.server.StaticResourceHandler;
-//import com.urlshortner.server.StaticFileHandler;
+import com.urlshortner.server.StaticFileHandler;
+import com.urlshortner.server.StaticFolderHandler;
 import com.urlshortner.server.UrlHandler;
 
 import java.io.IOException;
@@ -15,38 +15,29 @@ import com.sun.net.httpserver.HttpServer;
 public class Main {
 	
 	public static void main(String[] args) throws IOException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
+		
+		 HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
 
-        server.createContext("/shorten", new UrlHandler());
-        server.createContext("/s", new RedirectHandler());
-        server.createContext("/register", new RegisterHandler());
-        server.createContext("/login", new LoginHandler());
-		server.createContext("/myurls", new MyUrlsHandler());
-	
-		server.createContext("/", new StaticResourceHandler());
+		 // Static file handler for /, /index, /login, /register, etc.
+	        server.createContext("/", new StaticFileHandler("index.html"));
+	        server.createContext("/index", new StaticFileHandler("index.html"));
+	        server.createContext("/login", new StaticFileHandler("login.html"));
+	        server.createContext("/register", new StaticFileHandler("register.html"));
 
-        server.setExecutor(null);
-        server.start();
+	        // Static folder handler for JS, CSS, and other assets
+	        server.createContext("/css", new StaticFolderHandler("css"));
+	        server.createContext("/js", new StaticFolderHandler("js"));
 
-        System.out.println("Server started at http://localhost:8080");
+	        // API endpoints
+	        server.createContext("/shorten", new UrlHandler());
+	        server.createContext("/s", new RedirectHandler());
+	        server.createContext("/registerUser", new RegisterHandler()); 
+	        server.createContext("/loginUser", new LoginHandler());       
+	        server.createContext("/myurls", new MyUrlsHandler());
+
+	        server.setExecutor(null);
+	        server.start();
+	        System.out.println("Server started at http://localhost:8080");
     }
-	
-//	public static void main(String[] args) throws IOException {
-//	    HttpServer server = HttpServer.create(new InetSocketAddress(8080), 0);
-//
-//	    server.createContext("/shorten", new UrlHandler());
-//	    server.createContext("/s", new RedirectHandler());
-//	    server.createContext("/register", new RegisterHandler());
-//	    server.createContext("/login", new LoginHandler());
-//	    server.createContext("/myurls", new MyUrlsHandler());
-//	    
-//	 // Static file handler (HTML, CSS, etc.)
-//	    server.createContext("/", new StaticFileHandler("src/main/resources/static"));
-//
-//	    server.setExecutor(null);
-//	    server.start();
-//
-//	    System.out.println("Server started at http://localhost:8080");
-//	}
 
 }

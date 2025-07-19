@@ -8,11 +8,6 @@ public class UrlService {
 	
 	private final Database db = new Database();
 
-//    public String shortenUrl(String longUrl) {
-//        String slug = UUID.randomUUID().toString().substring(0, 6);
-//        db.save(slug, longUrl);
-//        return slug;
-//    }
 	public String shortenUrl(String longUrl) {
 	    String slug = UUID.randomUUID().toString().substring(0, 6);
 	    db.save(slug, longUrl, null); // anonymous
