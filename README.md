@@ -88,22 +88,6 @@ mvn test
 
 ---
 
-## 📚 Requirements Mapping
-
-| Requirement                     | Phase Completed |
-|----------------------------------|-----------------|
-| Anonymous Shortening            | ✅ Phase 2       |
-| Register/Login System           | ✅ Phase 3       |
-| Custom URL for Authenticated    | ✅ Phase 4       |
-| Plain JS UI                     | ✅ Phase 5       |
-| Show URL History                | ✅ Phase 6       |
-| SLF4J Logging                   | ✅ Phase 7       |
-| JUnit/Mockito Tests             | ✅ Phase 8       |
-| GitHub Actions CI               | ✅ Phase 9       |
-| Structured Git Workflow         | ✅ Final Phase   |
-
----
-
 ## 👨‍💻 Git Workflow
 
 - Feature isolation via branches (e.g., `feature/login`, `feature/history`)
@@ -115,13 +99,18 @@ mvn test
 
 ## 📜 License
 
-MIT License (or mention it's a practice project)
+This is a personal practice project created for learning purposes.
+Feel free to explore and learn from the code.
+No official license is associated with this repository.
 
 ---
 
 ## 🙋‍♂️ Author
 
-**Pramod Avhad**  
-Java Developer | Internship Project | 2025
+**Pramod Avhad**
+
+- GitHub: [@pramodavhad](https://github.com/pramodavhad)
+- LinkedIn: [Pramod Avhad](https://linkedin.com/in/pramod-avhad-bab8b6291)
+
 
 ---
