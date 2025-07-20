@@ -97,10 +97,10 @@ mvn test
 
 ---
 
-## 📜 License
+## 📄 License
 
-This is a personal practice project created for learning purposes.
-Feel free to explore and learn from the code.
+This is a personal practice project created for learning purposes.  
+Feel free to explore and learn from the code.  
 No official license is associated with this repository.
 
 ---
